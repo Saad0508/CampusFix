@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampusFix - Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <div>
+            <h1>CampusFix</h1>
+            <p>Campus Service & Complaint Management System</p>
+        </div>
+        <a class="logout" href="{{ url_for('logout') }}">Logout</a>
+    </header>
+
+    <main>
+        <section class="welcome">
+            <h2>Dashboard</h2>
+            <p>Welcome to your CampusFix complaint dashboard.</p>
+        </section>
+
+        <section class="card">
+            <h2>Submit a Complaint</h2>
+
+            <form action="{{ url_for('add_complaint') }}" method="POST">
+                <label for="title">Complaint Title</label>
+                <input id="title" name="title" type="text"
+                       placeholder="Example: Wi-Fi not working" required>
+
+                <label for="location">Location</label>
+                <input id="location" name="location" type="text"
+                       placeholder="Example: Computer Lab 2" required>
+
+                <button type="submit">Submit Complaint</button>
+            </form>
+        </section>
+
+        <section class="card">
+            <h2>Recent Complaints</h2>
+
+            {% for complaint in complaints %}
+            <div class="complaint">
+                <strong>{{ complaint.id }}</strong>
+                <span>{{ complaint.title }}</span>
+                <span>{{ complaint.location }}</span>
+                <span class="status">{{ complaint.status }}</span>
+            </div>
+            {% endfor %}
+        </section>
+    </main>
+</body>
+</html>
