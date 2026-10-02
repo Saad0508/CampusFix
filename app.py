@@ -18,7 +18,7 @@ def login():
         return redirect(url_for("dashboard"))
     return render_template("login.html")
 
-@app.route("/login", methods=["POST"])
+@app.route("/login", methods=["GET", "POST"])
 def do_login():
     email = request.form.get("email", "").strip()
     password = request.form.get("password", "")
