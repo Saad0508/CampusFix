@@ -29,9 +29,13 @@
                 <input id="title" name="title" type="text"
                        placeholder="Example: Wi-Fi not working" required>
 
-                <label for="location">Location</label>
-                <input id="location" name="location" type="text"
-                       placeholder="Example: Computer Lab 2" required>
+                <label for="priority">Priority</label>
+<select id="priority" name="priority" required>
+    <option value="">Select priority</option>
+    <option value="Low">Low</option>
+    <option value="Medium">Medium</option>
+    <option value="High">High</option>
+</select>
 
                 <button type="submit">Submit Complaint</button>
             </form>
