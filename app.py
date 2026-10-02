@@ -46,6 +46,7 @@ def add_complaint():
 
     title = request.form.get("title", "").strip()
     location = request.form.get("location", "").strip()
+    priority = request.form.get("priority", "").strip()
 
     if title and location:
         complaint_id = f"CF-2026-{len(complaints) + 149:04d}"
